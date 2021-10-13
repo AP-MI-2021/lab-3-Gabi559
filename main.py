@@ -85,6 +85,11 @@ def test_get_longest_digit_count_desc():
     assert get_longest_digit_count_desc([1235, 223, 14, 223]) == [1235, 223, 14]
 
 def media(lsta):
+    '''
+    gasete media aritmetica a tuturor numerelor dintr-o lista
+    :param lsta: toate numerele pt care se face media aritmetica
+    :return: media aritmetica (float)
+    '''
     x = 0
     suma = 0
     for x in lsta:
@@ -93,6 +98,12 @@ def media(lsta):
 
 
 def get_longest_average_below(lsta, k):
+    '''
+    returneaza segventa cea mai lunga in care media aritmetica este sub nr k dat
+    :param lsta: lista de numere in care se cauta segventa
+    :param k: numarul sub care media aritmetica trebuie sa se afle
+    :return: segventa ceruta
+    '''
     x = 1
     lst2 = []
     lst3 = []
@@ -117,6 +128,10 @@ def test_get_longest_average_below():
     assert get_longest_average_below([5, 6, 7, 8], 4) == []
 
 def meniu():
+    '''
+    UI interface
+    :return:
+    '''
     test_get_longest_product_is_odd()
     test_get_longest_digit_count_desc()
     test_get_longest_average_below()
@@ -143,7 +158,8 @@ if __name__ == '__main__':
             print(get_longest_average_below(lst))
         if obtiune == 'x':
             isruning = False
-        print('Doriti sa dati alta comanda?')
-        obtiune = input('Y sau N ?')
-        if obtiune == 'n':
-            isruning = False
+        else:
+            print('Doriti sa dati alta comanda?')
+            obtiune = input('Y sau N ?')
+            if obtiune == 'n':
+                isruning = False
