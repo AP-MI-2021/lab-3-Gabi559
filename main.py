@@ -1,8 +1,8 @@
 def citire():
-    '''
+    """
     functia citeste o lista de numere
     :return: numerele citite intr-o lista
-    '''
+    """
     print('Scrieti numere din lista cu un spatiu intre ele')
     elemente = input('')
     numere_in_lista = list(map(int, elemente.split()))
@@ -10,14 +10,13 @@ def citire():
 
 
 def get_longest_product_is_odd(lsta):
-    '''
+    """
     gaseste cea mai lunga segventa a caruia produsul e un nr impar (adica cea mai lunga segventa de nr impare)
     :param lsta: lista de numere
     :return: segventa cea mai lunga formata doar din nr impare
-    '''
+    """
     list2 = []
     listmax = []
-    x = 0
     for x in lsta:
         if x % 2 == 1:
             list2.append(x)
@@ -41,11 +40,11 @@ def test_get_longest_product_is_odd():
 
 
 def nr_cifre(nr):
-    '''
+    """
     returneaza nr de cifre ale unui nr
     :param nr: int , nr care dorim sa il verificam
     :return: nr de cifre ale unui nr
-    '''
+    """
     cifre = 0
     while nr != 0:
         nr = nr // 10
@@ -54,13 +53,12 @@ def nr_cifre(nr):
 
 
 def get_longest_digit_count_desc(list):
-    '''
+    """
     gaseste cea mai lunga segventa de numere unde nr de cifre este descrescator
     :param list: lista de nr
     :return: segventa cea mai lunga care indeplineste conditia
-    '''
+    """
     max_cif = 0
-    x = 0
     list2 = []
     listmax = []
     for x in list:
@@ -78,19 +76,21 @@ def get_longest_digit_count_desc(list):
     if len(list) == 1:
         return list
     return listmax
+
+
 def test_get_longest_digit_count_desc():
     assert get_longest_digit_count_desc([123, 23, 4, 23]) == [123, 23, 4]
     assert get_longest_digit_count_desc([54]) == [54]
     assert get_longest_digit_count_desc([123, 23, 4, 23, 5]) == [123, 23, 4]
     assert get_longest_digit_count_desc([1235, 223, 14, 223]) == [1235, 223, 14]
 
+
 def media(lsta):
-    '''
+    """
     gasete media aritmetica a tuturor numerelor dintr-o lista
     :param lsta: toate numerele pt care se face media aritmetica
     :return: media aritmetica (float)
-    '''
-    x = 0
+    """
     suma = 0
     for x in lsta:
         suma = suma + x
@@ -98,17 +98,15 @@ def media(lsta):
 
 
 def get_longest_average_below(lsta, k):
-    '''
+    """
     returneaza segventa cea mai lunga in care media aritmetica este sub nr k dat
     :param lsta: lista de numere in care se cauta segventa
     :param k: numarul sub care media aritmetica trebuie sa se afle
     :return: segventa ceruta
-    '''
-    x = 1
+    """
     lst2 = []
     lst3 = []
     lstmax = []
-    nr=0
     for x in lsta:
         lst2.append(x)
         if media(lst2) <= k:
@@ -116,7 +114,7 @@ def get_longest_average_below(lsta, k):
             lst3.extend(lst2)
         else:
             lst2.clear()
-        if len(lstmax)<len(lst3):
+        if len(lstmax) < len(lst3):
             lstmax.clear()
             lstmax.extend(lst3)
     return lstmax
@@ -127,11 +125,12 @@ def test_get_longest_average_below():
     assert get_longest_average_below([5, 15, 20, 10, 70, 2, 4, 6, 1, 3], 14) == [2, 4, 6, 1, 3]
     assert get_longest_average_below([5, 6, 7, 8], 4) == []
 
+
 def meniu():
-    '''
+    """
     UI interface
     :return:
-    '''
+    """
     test_get_longest_product_is_odd()
     test_get_longest_digit_count_desc()
     test_get_longest_average_below()
@@ -145,7 +144,7 @@ def meniu():
 
 if __name__ == '__main__':
     isruning = True
-    while isruning == True:
+    while isruning:
         meniu()
         obtiune = input('Alegeti comanda : ')
         if obtiune == '1':
@@ -155,7 +154,8 @@ if __name__ == '__main__':
         if obtiune == '3':
             print(get_longest_digit_count_desc(lst))
         if obtiune == '4':
-            print(get_longest_average_below(lst))
+            med=input('Dati media maxima : ')
+            print(get_longest_average_below(lst,med))
         if obtiune == 'x':
             isruning = False
         else:
