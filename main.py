@@ -154,12 +154,7 @@ if __name__ == '__main__':
         if obtiune == '3':
             print(get_longest_digit_count_desc(lst))
         if obtiune == '4':
-            med=input('Dati media maxima : ')
+            med=float(input('Dati media maxima : '))
             print(get_longest_average_below(lst,med))
         if obtiune == 'x':
             isruning = False
-        else:
-            print('Doriti sa dati alta comanda?')
-            obtiune = input('Y sau N ?')
-            if obtiune == 'n':
-                isruning = False
